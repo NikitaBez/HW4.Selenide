@@ -27,15 +27,15 @@ class CardDeliveryTest {
     @Test
     void shouldRegisterTheDeliveryOfTheCardWithValidValues(){
         String date =generateDate(4);
-        $("[data-test-id=city] input").setValue("Благовещенск");
-        $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME),Keys.BACK_SPACE);
-        $("[data-test-id=date] input").setValue(date);
-        $("[data-test-id=name] input").setValue("Петровский-Разумовский Иван");
-        $("[data-test-id=phone] input").setValue("+79145556677");
-        $("[data-test-id=agreement]").click();
+        $("[data-test-id='city'] input").setValue("Благовещенск");
+        $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT,Keys.HOME),Keys.BACK_SPACE);
+        $("[data-test-id='date'] input").setValue(date);
+        $("[data-test-id='name'] input").setValue("Петровский-Разумовский Иван");
+        $("[data-test-id='phone'] input").setValue("+79145556677");
+        $("[data-test-id='agreement']").click();
         $$("button").find(exactText("Забронировать")).click();
         $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(15));
-        $(".notification__content").shouldHave(exactText("Встреча успешно забронирована на" + date)).shouldBe(visible, Duration.ofSeconds(15));
+        $(".notification__content").shouldHave(exactText("Встреча успешно забронирована на " + date)).shouldBe(visible, Duration.ofSeconds(15));
 
     }
 }
